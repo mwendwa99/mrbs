@@ -206,17 +206,17 @@ $mrbs_admin_email = "admin_email@your.org";
 // The company name is mandatory.   It is used in the header and also for email notifications.
 // The company logo, additional information and URL are all optional.
 
-$mrbs_company = "Your Company";   // This line must always be uncommented ($mrbs_company is used in various places)
+$mrbs_company = "MEETING SCHEDULING DASHBOARD";   // This line must always be uncommented ($mrbs_company is used in various places)
 
 // Uncomment this next line to use a logo instead of text for your organisation in the header
-//$mrbs_company_logo = "your_logo.gif";    // name of your logo file.   This example assumes it is in the MRBS directory
+$mrbs_company_logo = "logo.png";    // name of your logo file.   This example assumes it is in the MRBS directory
 
 // Uncomment this next line for supplementary information after your company name or logo.
 // This can contain HTML, for example if you want to include a link.
-//$mrbs_company_more_info = "You can put additional information here";  // e.g. "XYZ Department"
+// $mrbs_company_more_info = "You can put additional information here";  // e.g. "XYZ Department"
 
 // Uncomment this next line to have a link to your organisation in the header
-//$mrbs_company_url = "http://www.your_organisation.com/";
+$mrbs_company_url = "/web/web";
 
 // This is to fix URL problems when using a proxy in the environment.
 // If links inside MRBS or in email notifications appear broken, then specify here the URL of
@@ -1562,7 +1562,7 @@ $language_debug = false;
 // for example 'en' and TOKEN is the key of the $vocab array.  For example to
 // alter the string "Meeting Room Booking System" in English set
 //
-// $vocab_override['en']['mrbs'] = "My Resource Booking System";
+$vocab_override['en']['mrbs'] = "";
 //
 // Applying vocab overrides in the config file rather than editing the lang files
 // mean that your changes will be preserved when you upgrade to the next version of
