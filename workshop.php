@@ -89,7 +89,7 @@ function generate_area_change_form($enabled_areas, $disabled_areas)
     }
 
     $field = new FieldSelect();
-    $field->setLabel(get_vocab('area'))
+    $field->setLabel(get_vocab('workshop'))
         ->setControlAttributes(array(
             'id'       => 'area_select',
             'name'     => 'area',

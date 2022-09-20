@@ -93,6 +93,8 @@ $vocab["period_lc"]          = "period";
 $vocab["periods"]            = "periods";
 $vocab["all_day"]            = "All day";
 $vocab["area"]               = "Area";
+//workshop
+$vocab["workshop"]               = "Workshop";
 $vocab["type"]               = "Type";
 $vocab["allow_registration"]        = "Allow registration";
 $vocab["registrant_limit_enabled"]  = "Set event capacity";
