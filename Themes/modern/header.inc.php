@@ -20,31 +20,29 @@ function print_head($simple)
     <!-- Improve scaling on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow, noarchive">
-    <meta name="csrf_token" content="<?=htmlspecialchars(Form::getToken())?>">
+    <meta name="csrf_token" content="<?= htmlspecialchars(Form::getToken()) ?>">
 
     <!-- stuff for PWA -->
     <link rel="manifest" href="/mrbs-modern-pwa-manifest.webmanifest">
 
     <?php
 
-    if(isset($enable_pwa) && $enable_pwa == True) {
+    if (isset($enable_pwa) && $enable_pwa == True) {
       $pwa_source = MRBS_ROOT . "/Themes/modern/pwa";
       foreach (scandir($pwa_source) as $file) {
         $targetFile = MRBS_ROOT . "/$file";
         if ($file != "." && $file != ".." && $file != "mrbs-modern-pwa-manifest.webmanifest" && !file_exists($targetFile)) {
           copy("$pwa_source/$file", $targetFile);
-        }
-        else if ($file == "mrbs-modern-pwa-manifest.webmanifest" && !file_exists($targetFile)) {
+        } else if ($file == "mrbs-modern-pwa-manifest.webmanifest" && !file_exists($targetFile)) {
           $fp = fopen("$pwa_source/$file", "r");
           $content = fread($fp, filesize("$pwa_source/$file"));
           fclose($fp);
           $content = str_replace("@@description@@", "$mrbs_company " . get_vocab("mrbs"), $content);
           $content = str_replace("@@icon.src@@", $mrbs_company_logo, $content);
           $content = str_replace("@@name@@", "$mrbs_company " . get_vocab("mrbs"), $content);
-          if(get_vocab("mrbs") != "") {
+          if (get_vocab("mrbs") != "") {
             $content = str_replace("@@short_name@@", get_vocab("mrbs"), $content);
-          }
-          else {
+          } else {
             $content = str_replace("@@short_name@@", $mrbs_company, $content);
           }
           file_put_contents($targetFile, $content);
@@ -78,11 +76,9 @@ function print_head($simple)
       var mrbs_company_logo = "<?= $mrbs_company_logo ?>";
       var mrbs_company = "<?= $mrbs_company ?>";
       var auth = {};
-      auth["only_admins_can_book"] = <?= $auth['only_admin_can_book'] ? "true":"false" ?>;
+      auth["only_admins_can_book"] = <?= $auth['only_admin_can_book'] ? "true" : "false" ?>;
       var vocab = {};
       vocab["mrbs"] = "<?= get_vocab("mrbs") ?>";
-
-      
     </script>
 
   </head>
@@ -137,8 +133,8 @@ function print_header_site_info()
 
 function print_menu_items($context)
 {
-  global $disable_menu_items_for_non_admins, 
-    $mrbs_company_more_info, 
+  global $disable_menu_items_for_non_admins,
+    $mrbs_company_more_info,
     $auth;
 
   $query = build_query($context);
@@ -147,13 +143,12 @@ function print_menu_items($context)
     'report' => 'report.php',
     'import' => 'import.php',
     'rooms'  => 'admin.php'
-  ); 
-  
-  if ($auth['type'] == 'db')
-  {
+  );
+
+  if ($auth['type'] == 'db') {
     $menu_items['user_list'] = 'edit_users.php';
   }
-  ?>
+?>
 
   <ul class="navbar-nav ml-auto" style="margin-left: auto !important;">
 
@@ -168,7 +163,7 @@ function print_menu_items($context)
     <?php endif;
     endforeach; ?>
 
-    <?php if(isset($mrbs_company_more_info)): ?>
+    <?php if (isset($mrbs_company_more_info)) : ?>
       <li class="nav-item active">
         <?= $mrbs_company_more_info ?>
       </li>
@@ -189,10 +184,11 @@ function print_menu_items($context)
 <?php
 }
 
-function print_edit_profile($context) {
+function print_edit_profile($context)
+{
   global $user_can_edit_profile;
   $user = session()->getCurrentUser();
-  if($user_can_edit_profile && isset($user)) {
+  if ($user_can_edit_profile && isset($user)) {
     $form = new Form();
 
     $form_id = 'header_user_profile';
@@ -283,7 +279,7 @@ function print_search($context)
       'month' => $context['month'],
       'day'   => $context['day']
     ));
-    
+
   if (!empty($context['area'])) {
     $form->addHiddenInput('area', $context['area']);
   }

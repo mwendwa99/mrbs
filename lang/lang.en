@@ -428,7 +428,7 @@ $vocab["na"]                    = "[N/A]";
 // Used in admin.php
 $vocab["edit"]               = "Edit";
 $vocab["delete"]             = "Delete";
-$vocab["rooms"]              = "Rooms";
+$vocab["rooms"]              = "Activities";
 $vocab["in"]                 = "in";
 $vocab["noareas"]            = "No areas have been defined.";
 $vocab["noareas_enabled"]    = "No areas have been enabled.";
@@ -436,11 +436,12 @@ $vocab["addarea"]            = "Add Area";
 $vocab["name"]               = "Name";
 $vocab["noarea"]             = "No area selected";
 $vocab["browserlang"]        = "Your browser is set with the following language preference order";
-$vocab["addroom"]            = "Add Room";
+$vocab["addroom"]            = "Add Activity";
+$vocab["workshops"]          = " Workshops";
 $vocab["capacity"]           = "Capacity";
 $vocab["norooms"]            = "No rooms have been defined.";
 $vocab["norooms_enabled"]    = "No rooms have been enabled.";
-$vocab["administration"]     = "Room Details";
+$vocab["administration"]     = "Activity Details";
 $vocab["invalid_area_name"]  = "That area name has already been used!";
 $vocab["empty_name"]         = "You have not entered a name!";
 
